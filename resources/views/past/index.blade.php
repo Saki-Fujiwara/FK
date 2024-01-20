@@ -7,21 +7,15 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     </head>
     <body>
-        <h1>チーム開発会へようこそ！</h1>
-        <h2>投稿一覧画面</h2>
-        <a href='/posts/create'>新規投稿</a>
+        <a href='/paquestions/create'>過去質問作成</a>
         <div>
-            @foreach ($posts as $post)
+            @foreach ($paquestion as $paquestion)
                 <div style='border:solid 1px; margin-bottom: 10px;'>
                     <p>
-                        タイトル：<a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
+                        質問：<a href="/paquestions/{{ $paquestion->id }}">{{ $paquestion->question }}</a>
                     </p>
-                    <p>カテゴリー：<a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a></p>
                 </div>
             @endforeach
-        </div>
-        <div>
-            {{ $posts->links() }}
         </div>
     </body>
 </html>
