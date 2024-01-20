@@ -6,8 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use DateTime;
-
-class PacommentSeeder extends Seeder
+class ExquestionSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,14 +15,11 @@ class PacommentSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('pacomments')->insert([
+        DB::table('exquestions')->insert([
                 'user_id' => '1',
-                'paquestion_id' => '1',
-                'comment' => '命名の心得',
-                'type' => '1',
+                'question' => '質問？',
                 'created_at' => new DateTime(),
                 'updated_at' => new DateTime(),
-                'deleted_at' => new DateTime(),
          ]);
     }
 }
