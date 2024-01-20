@@ -18,8 +18,9 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained();
             $table->foreignId('paquestion_id')->constrained();
             $table->string('comment');
-            $table->string('type');
+            $table->integer('type');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
