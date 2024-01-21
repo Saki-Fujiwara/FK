@@ -18,11 +18,25 @@ class PaController extends Controller
         return view('past/index')->with(['paquestions'=>$paquestion->get()]);
     }
 
-    public function detail(Paquestion $paquestion)
-    {
-        return view('past/detail')->with(['paquestion' => $paquestion]);
+    public function show(Paquestion $paquestion) {
+        return view("past.detail")->with(["paquestion" => $paquestion]);
+    }
+    
+    
+    public function comment(Request $request, Pacomment $pacomment,Paquestion $paquestion){
+        
+   
+    $input = $request['comment'];
+    $pacomment->paquestion_id=$paquestion->id;
+    $pacomment->user_id=auth()->user()->id;
+    $pacomment->fill($input)->save();
+    return redirect("/paquestions/" . $paquestion->id);
+
     }
 
+    
+
+    
     public function create(Paquestion $paquestion)
     {
         return view('past/create');
