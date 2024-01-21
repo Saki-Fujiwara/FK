@@ -2,7 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\PaController;
+use App\Http\Controllers\CommentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,8 +28,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     /* 投稿関連のルーティング */
-    Route::get('/pacomments/{post}',[CommentController::class, 'index']);
-    Route::post('/pacomments/{post}/store',[CommentController::class, 'pacomment']);
+    Route::get('/paquestions/{paquestion}',[PaController::class, 'show']);
+    Route::post('/paquestions/{paquestion}/comment',[PaController::class, 'comment']);
+    Route::post('/paquestions/{paquestion}/comment', [PaController::class, 'store']);
 });
 
 require __DIR__.'/auth.php';
