@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PaController;
+use App\Http\Controllers\ExController;
 use App\Http\Controllers\CommentController;
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +31,8 @@ Route::middleware('auth')->group(function () {
     /* 投稿関連のルーティング */
     Route::get('/paquestions/{paquestion}',[PaController::class, 'show']);
     Route::post('/paquestions/{paquestion}/comment',[PaController::class, 'comment']);
-    Route::post('/paquestions/{paquestion}/comment', [PaController::class, 'store']);
+    Route::get('/exquestions/{exquestion}',[ExController::class, 'show']);
+    Route::post('/exquestions/{exquestion}/comment',[ExController::class, 'comment']);
 });
 
 require __DIR__.'/auth.php';
