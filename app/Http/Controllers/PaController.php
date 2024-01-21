@@ -19,7 +19,7 @@ class PaController extends Controller
     }
 
     public function show(Paquestion $paquestion) {
-        return view("past.detail")->with(["paquestion" => $paquestion]);
+        return view("past.show")->with(["paquestion" => $paquestion]);
     }
     
     
