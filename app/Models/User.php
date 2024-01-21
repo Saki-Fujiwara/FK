@@ -41,4 +41,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    public function comments()
+    {
+    return $this->belongsToMany(Paquestion::class, 'pacomments', 'user_id', 'paquestion_id')->withPivot(['comment','type']);
+    }
 }

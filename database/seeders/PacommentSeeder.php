@@ -20,7 +20,7 @@ class PacommentSeeder extends Seeder
                 'user_id' => '1',
                 'paquestion_id' => '1',
                 'comment' => '命名の心得',
-                'type' => '1',
+                'type' => 1,
                 'created_at' => new DateTime(),
                 'updated_at' => new DateTime(),
                 'deleted_at' => new DateTime(),
