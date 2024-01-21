@@ -1,5 +1,4 @@
 <?php
-use App\Http\Controllers\PaController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PaController;
@@ -36,7 +35,7 @@ Route::middleware('auth')->group(function () {
     /* 投稿関連のルーティング */
     Route::get('/paquestions/{paquestion}',[PaController::class, 'show']);
     Route::post('/paquestions/{paquestion}/comment',[PaController::class, 'comment']);
-    Route::post('/paquestions/{paquestion}/comment', [PaController::class, 'store']);
+    
 });
 
 require __DIR__.'/auth.php';

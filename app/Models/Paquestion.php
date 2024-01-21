@@ -16,15 +16,17 @@ class Paquestion extends Model
         'answer',
         'user_id'
     ];
-
-}
-
-
-   public function comments()
+    
+    public function comments()
     {
         return $this->belongsToMany(Paquestion::class, 'pacomments', 'paquestion_id', 'user_id')->withPivot(['comment','type']);
     }
     
+
 }
+
+
+   
+
 
 
