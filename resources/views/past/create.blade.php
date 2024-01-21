@@ -1,10 +1,4 @@
-<!DOCTYPE HTML>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <title>過去質問</title>
-    </head>
-    <body>
+<x-app-layout>
         <h2>過去質問作成</h2>
         <form action="/pasts" method="PAST">
             @csrf
@@ -22,5 +16,4 @@
             <input type="submit" value="保存"/>
         </form>
         <div><a href="/">戻る</a></div>
-    </body>
-</html>
+</x-app-layout>

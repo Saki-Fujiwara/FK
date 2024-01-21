@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <title>過去の面接で聞かれた質問</title>
-        <!-- Fonts -->
- <link rel="stylesheet" href="padetailstylesheet.css">
-    </head>
-    <body>
+<x-app-layout>
         <h1>過去質問</h1>
         <h2>詳細画面</h2>
         <div>
@@ -33,7 +25,7 @@
             <div class="content">
                 <h2>コメント</h2><br>
                 <textarea name="comment[comment]" placeholder="ここに内容を入力してください"></textarea><br>
-                <input type="submit" value="投稿"/>
+                <button type="submit" class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">投稿</button>
             </div>
         </form>
 
@@ -52,5 +44,4 @@
             @endforeach
         </div>
 
-    </body>
-</html>
+    </x-app-layout>

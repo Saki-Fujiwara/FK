@@ -1,10 +1,4 @@
-<!DOCTYPE HTML>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <title>過去質問</title>
-    </head>
-    <body>
+<x-app-layout>
         <h1 class="title">過去質問編集画面</h1>
         <div class="content">
             <form action="/posts/{{ $past->id }}" method="PAST">
@@ -21,5 +15,4 @@
                 <input type="submit" value="保存">
             </form>
         </div>
-    </body>
-</html>
+</x-app-layout>
