@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\PaController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PaController;
@@ -24,6 +24,12 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+    
+    Route::get('/pa', [PaController::class, 'index'])->name('pa.index');
+    Route::get('/paquestions/create', [PaController::class, 'create'])->name('pa.create');
+    Route::get('/pasts', [PaController::class, 'store']);
+    Route::get('/past/{past}', [PaController::class, 'index']);
+   
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
