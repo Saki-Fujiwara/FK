@@ -9,6 +9,10 @@ class Exquestion extends Model
 {
     
     use HasFactory;
+   public function excomments()
+    {
+        return $this->belongsToMany(Exquestion::class, 'excomments', 'exquestion_id', 'user_id')->withPivot(['comment',]);
+    }
 
     
     protected $fillable = [

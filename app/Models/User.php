@@ -45,4 +45,9 @@ class User extends Authenticatable
     {
     return $this->belongsToMany(Paquestion::class, 'pacomments', 'user_id', 'paquestion_id')->withPivot(['comment','type']);
     }
+    
+    public function excomments()
+    {
+    return $this->belongsToMany(Exquestion::class, 'excomments', 'user_id', 'exquestion_id')->withPivot(['comment',]);
+    }
 }

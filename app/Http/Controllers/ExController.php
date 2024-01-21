@@ -10,14 +10,9 @@ class ExController extends Controller
 {
     public function index(Exquestion $exquestion)
     {
-        //$user = Auth::user();
-        //$query = Paquestion::query();
-        //$query->where('user_id','=',$user);
-        //$paquestion=$query->get();
-        
-        return view('expectation/index')->with(['exquestions'=>$exquestion->get()]);
+        //ログインしてる人のみの投稿絞り込み
+        return view('expectation/index')->with(['exquestions' => $exquestion->get()]);
     }
-
     public function show(Exquestion $exquestion) {
         return view("expectation.show")->with(["exquestion" => $exquestion]);
     }
@@ -42,7 +37,7 @@ class ExController extends Controller
         return view('expectation/create');
     }
 
-    public function store(Request $request, Exquestion $exquestion)
+    public function store(Exquestion $exquestion, Request $request)
     {
         $input = $request['exquestion'];
         $exquestion->fill($input)->save();
