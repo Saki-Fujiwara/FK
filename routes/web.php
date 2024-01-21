@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PaController;
 use App\Http\Controllers\ExController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ExController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,6 +40,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/exquestions/{exquestion}',[ExController::class, 'show']);
     Route::post('/exquestions/{exquestion}/comment',[ExController::class, 'comment']);
     
+    Route::get('/ex', [ExController::class, 'index']);
+    Route::get('/exquestions/create', [ExController::class, 'create']);
+    Route::get('/exquestions', [ExController::class, 'store']);
+    Route::get('/exquestions/{exquestion}', [ExController::class, 'show']);
 });
 
 require __DIR__.'/auth.php';

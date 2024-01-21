@@ -13,7 +13,14 @@ class Exquestion extends Model
     {
         return $this->belongsToMany(Exquestion::class, 'excomments', 'exquestion_id', 'user_id')->withPivot(['comment',]);
     }
+
+    
+    protected $fillable = [
+        'question',
+        'user_id'
+    ];
     
 }
 
 
+   
