@@ -5,18 +5,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Paquestion;
 use App\Models\Pacomment;
-
+use Auth;
 class PaController extends Controller
 {
     public function index(Paquestion $paquestion)
     {
-        //ログインしてる人のみの投稿絞り込み
-        return view('past/index')->with(['paquestions' => $paquestion->get()]);
+        //$user = Auth::user();
+        //$query = Paquestion::query();
+        //$query->where('user_id','=',$user);
+        //$paquestion=$query->get();
+        
+        return view('past/index')->with(['paquestions'=>$paquestion->get()]);
     }
 
-    public function show(Paquestion $paquestion)
+    public function detail(Paquestion $paquestion)
     {
-        return view('past/show')->with(['paquestion' => $paquestion]);
+        return view('past/detail')->with(['paquestion' => $paquestion]);
     }
 
     public function create(Paquestion $paquestion)
@@ -24,14 +28,14 @@ class PaController extends Controller
         return view('past/create');
     }
 
-    public function store(Paquestion $paquestion, Request $request)
+    public function store(Request $request, Paquestion $paquestion)
     {
         $input = $request['paquestion'];
         $paquestion->fill($input)->save();
         return redirect('/past/' . $paquestion->id);
     }
-
-    public function edit(Post $post)
+    
+    public function edit(Paquestion $paquestion)
     {
         return view('past/edit')->with(['paquestion' => $paquestion]);
     }
@@ -44,5 +48,4 @@ class PaController extends Controller
         return redirect('/past/' . $paquestion->id);
     }
     
-
 }
